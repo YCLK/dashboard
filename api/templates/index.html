@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>INFO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+  </head>
+  <body class="bg-grey-200">
+    <div class="grid grid-cols-2 p-10 gap-5 h-screen">
+
+      <!-- 급식 -->
+      <div class="p-5 rounded-tl-[30px] bg-gray-50">
+        {% for i in meal %}
+          <div>{{ i }}</div>
+        {% endfor %}
+      </div>
+
+      <!-- 날씨 -->
+      <div class="p-5 rounded-tr-[30px] bg-green-50">
+        {% for i in weather %}
+        <div>{{ i }}</div>
+        {% endfor %}
+      </div>
+
+      <!-- 뉴스 -->
+      <div class="p-5 rounded-bl-[30px] bg-red-50">
+        {% for i in news %}
+          <a href="{{i[1]}}" target='_blank'>{{i[0]}}</a>
+          <br></br>
+        {% endfor %}
+      </div>
+
+      <!-- todoList -->
+      <div class="p-5 rounded-br-[30px] bg-yellow-50">
+        <form method="POST" action="/todo">
+          <input type="text" name="contents">
+          <input type='submit' value="쓰기" >
+        </form>
+
+        {% for i in todoList %}
+        <div>{{i['contents']}} <a href="/delete/{{i['_id']}}">삭제</a></div>
+        {% endfor %}
+      </div>
+    </div>
+    
+   
+  </body>
+</html>
