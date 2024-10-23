@@ -29,7 +29,7 @@ def getMeal() :
 #날씨
 def getWeather() :
     
-    html = requests.get('https://search.naver.com/search.naver?query=날씨')
+    html = requests.get('https://search.naver.com/search.naver?query=현풍읍날씨')
     #웹페이지 요청을 하는 코드
     
     soup = BeautifulSoup(html.text, 'html.parser')
